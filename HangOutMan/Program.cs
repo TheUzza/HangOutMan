@@ -74,7 +74,6 @@ namespace HangOutmanAppTest
                 }
                 counter += 1;
             }
-            //Console.Write("\r\n");
             return rightLetters;
         }
 
@@ -115,10 +114,8 @@ namespace HangOutmanAppTest
                 {
                     Console.Write(letter + " ");
                 }
-                // Prompt user for input
                 Console.Write("\nGuess a letter: ");
                 char guessed = Console.ReadLine()[0];
-                // Check if that letter has already been guessed
                 if (currentLettersGuessed.Contains(guessed))
                 {
                     Console.Write("\r\n You have already guessed that");
@@ -128,11 +125,9 @@ namespace HangOutmanAppTest
                 }
                 else
                 {
-                    // Check if letter is in randomWord
                     bool right = false;
                     for (int i = 0; i < randomWord.Length; i++) { if (guessed == randomWord[i]) { right = true; } }
 
-                    // User is right
                     if (right)
                     {
                         printHangOutman(amountOfTimesWrong);
@@ -147,9 +142,7 @@ namespace HangOutmanAppTest
                     {
                         amountOfTimesWrong += 1;
                         currentLettersGuessed.Add(guessed);
-                        // Update the drawing
                         printHangOutman(amountOfTimesWrong);
-                        // Print word
                         currentLettersRight = printWord(currentLettersGuessed, randomWord);
                         Console.Write("\r\n");
                         printLines(randomWord);
